@@ -4056,6 +4056,49 @@ input[type=button].btn-block {
 }
 
 
+
+
+
+
+/*  companies logos */
+
+.row.justify-content-between {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0; /* we'll control spacing manually */
+}
+
+.five-col {
+  flex: 1 1 18%;
+  max-width: 18%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Make it responsive */
+@media (max-width: 992px) {
+  .five-col {
+    flex: 1 1 30%;
+    max-width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .five-col {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 576px) {
+  .five-col {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+
+
 /* ========================================================= */
 
 
