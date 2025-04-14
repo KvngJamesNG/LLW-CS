@@ -567,6 +567,12 @@ pre code {
   }
 }
 
+/* Add padding-top to .masthead in mobile view to offset the navbar height. */
+
+
+/* =========================================================== */
+
+
 .container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
   width: 100%;
   padding-right: 0.75rem;
@@ -4009,30 +4015,47 @@ input[type=button].btn-block {
 }
 
 /* This will help with the size and position of the navbar */ 
+
+
+/* Ensure no extra margin or padding for navbar elements */
+#mainNav, .navbar, .navbar-brand, .navbar-nav {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .navbar-logo {
-  height: 120px !important;       /* or try 60px if needed */
+  height: 110px !important; 
   width: auto !important;
   max-height: 100%;
   object-fit: contain;
   display: block;
 }
 
-.navbar .container {
-  padding-left: 1.5rem; /* default is usually 1rem */
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  #mainNav {
+    height: auto;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .navbar .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Ensure the logo and nav text are aligned correctly on mobile */
+  .navbar-brand {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    display: flex;
+    align-items: center;
+  }
 }
 
-#mainNav {
-  height: 70px;
-  padding-top: 0;
-  padding-bottom: 0;
-  overflow: hidden;
-}
 
-#mainNav .navbar-brand {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
 /* ========================================================= */
 
 
