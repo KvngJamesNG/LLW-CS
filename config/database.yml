@@ -77,8 +77,19 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+
+# production:
+#   <<: *default
+#   database: llw_cs_production
+#   username: llw_cs
+#   password: <%= ENV["LLW_CS_DATABASE_PASSWORD"] %>
+
 production:
-  <<: *default
-  database: llw_cs_production
+  adapter: postgresql
+  encoding: unicode
+  database: llw_cs_production_le0y
   username: llw_cs
   password: <%= ENV["LLW_CS_DATABASE_PASSWORD"] %>
+  host: dpg-d0bpn1euk2gs7381vsug-a.oregon-postgres.render.com
+  port: 5432
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
