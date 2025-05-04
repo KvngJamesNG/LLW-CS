@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   protect_from_forgery with: :null_session  # Allows API-style JSON POST
+  skip_before_action :verify_authenticity_token, only: [:create]  # Optional explicit skip
 
   def create
     @contact = Contact.new(contact_params)
