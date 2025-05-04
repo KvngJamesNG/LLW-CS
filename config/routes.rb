@@ -8,4 +8,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "static_pages#home"
+
+  post '/contact', to: 'contacts#create', defaults: { format: :json }
+
+  get '/contact', to: redirect('/')
+
 end
