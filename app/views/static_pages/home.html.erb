@@ -1,53 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>LLW Consultancy Services LTD</title>
-    <link rel="icon" type="image/png" href="<%= asset_path 'favicon.png' %>">
-
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <%= stylesheet_link_tag "styles", media: "all", "data-turbo-track": "reload" %>
-
-</head>
+<%= render 'shared/head' %>
 
 <body id="page-top">
+
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top"><%= image_tag "navbar-logo.png", alt: "LLW logo", class:"navbar-logo" %></a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars ml-1"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <%= render 'shared/navbar' %>
+
     <!-- Masthead-->
     <header class="masthead" style="padding-top: 210px;">
-        <div class="container">
+        <div class="container text-center">
             <div class="masthead-subheading">Smart Solutions, Stronger Businesses.</div>
             <div class="masthead-heading text-uppercase">Innovation. Integrity. Impact.</div>
-            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Hire Us Now!</a>
+            <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+                <a class="btn btn-primary btn-xl text-uppercase mx-2" href="<%= contact_us_path %>">Learn More</a>
+                <a class="btn btn-primary btn-xl text-uppercase mx-2" href="#careers">Hire Us Now!</a>
+            </div>
         </div>
     </header>
+
     <!-- Services-->
     <section class="page-section" id="services">
         <div class="container">
@@ -107,7 +79,7 @@
                             </div>
                             <%= image_tag "portfolio/01-thumbnail.jpg", class: "img-fluid", alt: "" %>
                         </a>
-                        <div class="portfolio-caption">
+                        <div class=" portfolio-caption">
                             <div class="portfolio-caption-heading">Cloud Infrastructure Deployment</div>
                             <div class="portfolio-caption-subheading text-muted">IT Infrastructure & Cloud Solutions</div>
                         </div>
@@ -270,7 +242,7 @@
                 <h3 class="section-subheading text-muted mb-3">Meet the Professionals Driving Your Growth</h3>
             </div>
             <div class="text-center mb-4">
-                <a class=" btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services"> JOIN US </a>
+                <a class=" btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="<%= applicants_path %>"> JOIN US </a>
             </div>
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
@@ -303,326 +275,200 @@
     </div>
 
     <!-- Contact -->
-    <section class="page-section" id="contact">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Contact Us</h2>
-                <h3 class="section-subheading text-muted">Reach Out for Expert Consultation.</h3>
-            </div>
-
-            <form id="contactForm" novalidate="novalidate">
-                <div class="row align-items-stretch mb-5">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input class="form-control" name="name" type="text" placeholder="Your Name *" required />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" name="email" type="email" placeholder="Your Email *" required />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="form-group mb-md-0">
-                            <input class="form-control" name="phone" type="tel" placeholder="Your Phone *" required />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group form-group-textarea mb-md-0">
-                            <textarea class="form-control" name="message" placeholder="Your Message *" required></textarea>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center">
-                    <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button>
-                </div>
-
-                <!-- ✅ Message displays BELOW button -->
-                <div class="text-center mt-3">
-                    <div id="formResponse" class="text-success fw-bold" style="display: none;"></div>
-                </div>
-            </form>
-
-            <script>
-                document.querySelector("#contactForm").addEventListener("submit", async function(e) {
-                    e.preventDefault();
-
-                    const form = e.target;
-                    const responseDiv = document.getElementById("formResponse");
-
-                    const data = {
-                        contact: {
-                            name: form.name.value.trim(),
-                            email: form.email.value.trim(),
-                            phone: form.phone.value.trim(),
-                            message: form.message.value.trim()
-                        }
-                    };
-
-                    const errors = [];
-                    if (!data.contact.name) errors.push("Name is required.");
-                    if (!data.contact.email.match(/^\S+@\S+\.\S+$/)) errors.push("Email is invalid.");
-                    if (!data.contact.phone) errors.push("Phone number is required.");
-                    if (!data.contact.message) errors.push("Message is required.");
-
-                    if (errors.length > 0) {
-                        responseDiv.textContent = errors.join(" ");
-                        responseDiv.className = "text-danger fw-bold";
-                        responseDiv.style.display = "block";
-                        return;
-                    }
-
-                    try {
-                        const response = await fetch("/contact", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json"
-                            },
-                            body: JSON.stringify(data)
-                        });
-
-                        const result = await response.json();
-                        if (result.success) {
-                            responseDiv.textContent = result.message;
-                            responseDiv.className = "text-success fw-bold";
-                            responseDiv.style.display = "block";
-                            form.reset();
-                        } else {
-                            responseDiv.textContent = result.errors.join(" ");
-                            responseDiv.className = "text-danger fw-bold";
-                            responseDiv.style.display = "block";
-                        }
-                    } catch (error) {
-                        responseDiv.textContent = "An error occurred. Please try again.";
-                        responseDiv.className = "text-danger fw-bold";
-                        responseDiv.style.display = "block";
-                    }
-                });
-            </script>
-        </div>
-    </section>
 
 
     <!-- Footer-->
-    <footer class="footer py-4">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Company Information -->
-                <div class="col-lg-4 text-lg-left mb-4 mb-lg-0">
-                    <h5 class="footer-heading">Company Information</h5>
-                    <ul class="list-unstyled">
-                        <li>Registered Company Number: 16310912 </li>
-                        <li>VAT NO: GB XX-XX-XXXX</li>
-                    </ul>
-                </div>
+    <%= render 'shared/footer' %>
 
-                <!-- Useful Links -->
-                <div class="col-lg-4 text-lg-center mb-4 mb-lg-0">
-                    <h5 class="footer-heading">Useful Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#!">Business Consultancy</a></li>
-                        <li><a href="#!">Digital Transformation</a></li>
-                        <li><a href="#!">Enterprise Data Strategy & Advisory</a></li>
-                        <li><a href="#!">Case Studies</a></li>
-                        <li><a href="#!">Contact Detail</a></li>
-                    </ul>
-                </div>
 
-                <!-- Contact Details -->
-                <div class="col-lg-4 text-lg-right mb-4 mb-lg-0">
-                    <h5 class="footer-heading">Contact Us</h5>
-                    <p>Feel free to contact & reach us!</p>
-                    <p>Office Address: 11, Norman Road, Ilford Lane, London IG12NH</p> <!-- Portfolio Modals-->
-                    <!-- Modal 1-->
-                    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="close-modal" data-dismiss="modal"><%= image_tag "close-icon.svg", alt: "Close modal" %></div>
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-8">
-                                            <div class="modal-body">
-                                                <!-- Project Details Go Here-->
-                                                <h2 class="text-uppercase">Cloud Infrastructure Deployment</h2>
-                                                <p class="item-intro text-muted">Cloud Migration & Optimization</p>
-                                                <%= image_tag "portfolio/01-full.jpg", class: "img-fluid d-block mx-auto", alt: "" %>
-                                                <p>At LLW Consultancy, we specialize in helping small-to-medium enterprises (SMEs) and corporations migrate to secure and scalable cloud platforms. Our team has a deep understanding of cloud computing technologies, ensuring businesses experience a seamless transition to the cloud while optimizing performance, reducing costs, and enhancing scalability. We work with a variety of sectors, including finance, retail, and healthcare, to drive digital transformation through cloud solutions.</p>
-                                                <ul class="list-inline">
-                                                    <li>Date: January 2020</li>
-                                                    <li>Client: FinTech Solutions</li>
-                                                    <li>Category: IT Infrastructure & Cloud Solutions</li>
-                                                </ul>
-                                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                                    <i class="fas fa-times mr-1"></i>
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+    <!-- Portfolio Modals-->
+    <!-- Modal 1-->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><%= image_tag "close-icon.svg", alt: "Close modal" %></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Cloud Infrastructure Deployment</h2>
+                                <p class="item-intro text-muted">Cloud Migration & Optimization</p>
+                                <%= image_tag "portfolio/01-full.jpg", class: "img-fluid d-block mx-auto", alt: "" %>
+                                <p>At LLW Consultancy, we specialize in helping small-to-medium enterprises (SMEs) and corporations migrate to secure and scalable cloud platforms. Our team has a deep understanding of cloud computing technologies, ensuring businesses experience a seamless transition to the cloud while optimizing performance, reducing costs, and enhancing scalability. We work with a variety of sectors, including finance, retail, and healthcare, to drive digital transformation through cloud solutions.</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2020</li>
+                                    <li>Client: FinTech Solutions</li>
+                                    <li>Category: IT Infrastructure & Cloud Solutions</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <!-- Modal 2-->
-                    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="close-modal" data-dismiss="modal"><%= image_tag "close-icon.svg", alt: "Close modal" %>
-                                </div>
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-8">
-                                            <div class="modal-body">
-                                                <!-- Project Details Go Here-->
-                                                <h2 class="text-uppercase">Cybersecurity & Data Protection</h2>
-                                                <p class="item-intro text-muted">Enhancing Security and Compliance</p>
-                                                <%= image_tag "portfolio/02-full.jpg", class: "img-fluid d-block mx-auto", alt: "" %>
-                                                <p>We provide cybersecurity consulting to financial institutions, healthcare providers, and technology companies, ensuring their data is secure and compliant with regulations such as GDPR and HIPAA. Our team conducts risk assessments, implements robust firewall systems, and ensures businesses are fully prepared for cyber threats. We understand the complex nature of compliance and data protection across industries and are equipped to tailor security strategies to each client’s specific needs.</p>
-                                                <ul class="list-inline">
-                                                    <li>Date: January 2025</li>
-                                                    <li>Client: SecureBank Ltd.</li>
-                                                    <li>Category: Cybersecurity & Compliance</li>
-                                                </ul>
-                                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                                    <i class="fas fa-times mr-1"></i>
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 2-->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><%= image_tag "close-icon.svg", alt: "Close modal" %>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Cybersecurity & Data Protection</h2>
+                                <p class="item-intro text-muted">Enhancing Security and Compliance</p>
+                                <%= image_tag "portfolio/02-full.jpg", class: "img-fluid d-block mx-auto", alt: "" %>
+                                <p>We provide cybersecurity consulting to financial institutions, healthcare providers, and technology companies, ensuring their data is secure and compliant with regulations such as GDPR and HIPAA. Our team conducts risk assessments, implements robust firewall systems, and ensures businesses are fully prepared for cyber threats. We understand the complex nature of compliance and data protection across industries and are equipped to tailor security strategies to each client’s specific needs.</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2025</li>
+                                    <li>Client: SecureBank Ltd.</li>
+                                    <li>Category: Cybersecurity & Compliance</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <!-- Modal 3-->
-                    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="close-modal" data-dismiss="modal"><%= image_tag "close-icon.svg", alt: "Close modal" %></div>
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-8">
-                                            <div class="modal-body">
-                                                <!-- Project Details Go Here-->
-                                                <h2 class="text-uppercase">AI-Powered Digital Transformation</h2>
-                                                <p class="item-intro text-muted">Leveraging AI for Business Efficiency</p>
-                                                <%= image_tag "portfolio/03-full.jpg", class: "img-fluid d-block mx-auto", alt: "" %>
-                                                <p>Our expertise in artificial intelligence (AI) allows us to help businesses, especially in the manufacturing, retail, and logistics sectors, adopt AI technologies to automate processes and enhance decision-making. We work with mid-size companies and enterprise organizations to develop AI solutions that reduce operational costs, improve customer experiences, and unlock new business opportunities. From AI chatbots to predictive analytics, we integrate tailored AI solutions that create measurable value. </p>
-                                                <ul class="list-inline">
-                                                    <li>Date: January 2025</li>
-                                                    <li>Client: RetailCorp</li>
-                                                    <li>Category: AI & Digital Transformation</li>
-                                                </ul>
-                                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                                    <i class="fas fa-times mr-1"></i>
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 3-->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><%= image_tag "close-icon.svg", alt: "Close modal" %></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">AI-Powered Digital Transformation</h2>
+                                <p class="item-intro text-muted">Leveraging AI for Business Efficiency</p>
+                                <%= image_tag "portfolio/03-full.jpg", class: "img-fluid d-block mx-auto", alt: "" %>
+                                <p>Our expertise in artificial intelligence (AI) allows us to help businesses, especially in the manufacturing, retail, and logistics sectors, adopt AI technologies to automate processes and enhance decision-making. We work with mid-size companies and enterprise organizations to develop AI solutions that reduce operational costs, improve customer experiences, and unlock new business opportunities. From AI chatbots to predictive analytics, we integrate tailored AI solutions that create measurable value. </p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2025</li>
+                                    <li>Client: RetailCorp</li>
+                                    <li>Category: AI & Digital Transformation</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <!-- Modal 4-->
-                    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="close-modal" data-dismiss="modal"><%= image_tag "close-icon.svg", alt: "Close modal" %></div>
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-8">
-                                            <div class="modal-body">
-                                                <!-- Project Details Go Here-->
-                                                <h2 class="text-uppercase">Business Strategy & Process Optimization</h2>
-                                                <p class="item-intro text-muted">Streamlining Operations for Growth</p>
-                                                <%= image_tag "portfolio/04-full.jpg", class: "img-fluid d-block mx-auto", alt: "" %>
-                                                <p>We help startups, SMEs, and large enterprises redefine their business processes to achieve greater operational efficiency and scalable growth. Whether it’s optimizing supply chains, refining marketing strategies, or improving internal workflows, we leverage data-driven insights and industry best practices to help organizations streamline operations and drive profitability. Our approach focuses on long-term sustainability, aligning processes with business goals for sustained success.</p>
-                                                <ul class="list-inline">
-                                                    <li>Date: January 2025</li>
-                                                    <li>Client: GrowthX Consulting</li>
-                                                    <li>Category: Business Strategy & Process Improvement</li>
-                                                </ul>
-                                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                                    <i class="fas fa-times mr-1"></i>
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 4-->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><%= image_tag "close-icon.svg", alt: "Close modal" %></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Business Strategy & Process Optimization</h2>
+                                <p class="item-intro text-muted">Streamlining Operations for Growth</p>
+                                <%= image_tag "portfolio/04-full.jpg", class: "img-fluid d-block mx-auto", alt: "" %>
+                                <p>We help startups, SMEs, and large enterprises redefine their business processes to achieve greater operational efficiency and scalable growth. Whether it’s optimizing supply chains, refining marketing strategies, or improving internal workflows, we leverage data-driven insights and industry best practices to help organizations streamline operations and drive profitability. Our approach focuses on long-term sustainability, aligning processes with business goals for sustained success.</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2025</li>
+                                    <li>Client: GrowthX Consulting</li>
+                                    <li>Category: Business Strategy & Process Improvement</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <!-- Modal 5-->
-                    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="close-modal" data-dismiss="modal"><%= image_tag "close-icon.svg", alt: "Close modal" %></div>
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-8">
-                                            <div class="modal-body">
-                                                <!-- Project Details Go Here-->
-                                                <h2 class="text-uppercase">Agile Project Management Consulting</h2>
-                                                <p class="item-intro text-muted">Agile Transformation for Faster Delivery</p>
-                                                <%= image_tag "portfolio/05-full.jpg", class: "img-fluid d-block mx-auto", alt: "" %>
-                                                <p>At LLW Consultancy, we help tech startups, software development firms, and large corporations implement Agile methodologies such as Scrum and Kanban to improve project delivery times and team collaboration. Our Agile consulting is designed to help organizations become more adaptable, reduce time-to-market, and enhance the quality of product delivery. We also offer PRINCE2 and Lean consulting for large-scale, complex projects, helping companies manage risk and ensure on-time completion.</p>
-                                                <ul class="list-inline">
-                                                    <li>Date: January 2025</li>
-                                                    <li>Client: InnovateTech</li>
-                                                    <li>Category: Project Management & Agile Consulting</li>
-                                                </ul>
-                                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                                    <i class="fas fa-times mr-1"></i>
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 5-->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><%= image_tag "close-icon.svg", alt: "Close modal" %></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Agile Project Management Consulting</h2>
+                                <p class="item-intro text-muted">Agile Transformation for Faster Delivery</p>
+                                <%= image_tag "portfolio/05-full.jpg", class: "img-fluid d-block mx-auto", alt: "" %>
+                                <p>At LLW Consultancy, we help tech startups, software development firms, and large corporations implement Agile methodologies such as Scrum and Kanban to improve project delivery times and team collaboration. Our Agile consulting is designed to help organizations become more adaptable, reduce time-to-market, and enhance the quality of product delivery. We also offer PRINCE2 and Lean consulting for large-scale, complex projects, helping companies manage risk and ensure on-time completion.</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2025</li>
+                                    <li>Client: InnovateTech</li>
+                                    <li>Category: Project Management & Agile Consulting</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <!-- Modal 6-->
-                    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="close-modal" data-dismiss="modal"><%= image_tag "close-icon.svg", alt: "Close modal" %></div>
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-8">
-                                            <div class="modal-body">
-                                                <!-- Project Details Go Here-->
-                                                <h2 class="text-uppercase">Leadership & Operational Training</h2>
-                                                <p class="item-intro text-muted">Empowering Leaders for Better Performance</p>
-                                                <%= image_tag "portfolio/06-full.jpg", class: "img-fluid d-block mx-auto", alt: "" %>
-                                                <p>Our leadership and operational training programs are tailored to corporate executives, managers, and teams in industries such as finance, healthcare, and tech. We focus on developing essential leadership skills, fostering operational efficiency, and driving organizational growth through practical training and workshops. Whether it’s enhancing strategic thinking, improving team dynamics, or promoting change management, our training helps leaders and teams reach their full potential.</p>
-                                                <ul class="list-inline">
-                                                    <li>Date: January 2025</li>
-                                                    <li>Client: Alpha Enterprises</li>
-                                                    <li>Category: Leadership & Training</li>
-                                                </ul>
-                                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                                    <i class="fas fa-times mr-1"></i>
-                                                    Close
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 6-->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><%= image_tag "close-icon.svg", alt: "Close modal" %></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Leadership & Operational Training</h2>
+                                <p class="item-intro text-muted">Empowering Leaders for Better Performance</p>
+                                <%= image_tag "portfolio/06-full.jpg", class: "img-fluid d-block mx-auto", alt: "" %>
+                                <p>Our leadership and operational training programs are tailored to corporate executives, managers, and teams in industries such as finance, healthcare, and tech. We focus on developing essential leadership skills, fostering operational efficiency, and driving organizational growth through practical training and workshops. Whether it’s enhancing strategic thinking, improving team dynamics, or promoting change management, our training helps leaders and teams reach their full potential.</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2025</li>
+                                    <li>Client: Alpha Enterprises</li>
+                                    <li>Category: Leadership & Training</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <!-- Bootstrap core JS-->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-                    <!-- Third party plugin JS-->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-                    <!-- Contact form JS-->
-                    <!-- Core theme JS-->
-                    <%= javascript_include_tag "jqBootstrapValidation", "contact_me", "scripts", "data-turbo-track": "reload" %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <!-- Third party plugin JS-->
+    <!-- Contact form JS-->
+    <!-- Core theme JS-->
+    <%= render 'shared/scripts' %>
+
 </body>
 
 </html>
