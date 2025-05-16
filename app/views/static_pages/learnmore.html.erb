@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enterprise Data Strategy & Advisory | LLW Consultancy</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fffef4;
+        }
+
+        .section-rounded {
+            background: #fff6cc;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: #b18b00;
+        }
+
+        summary {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <%= render "shared/navbar2" %>
+
+    <main class="container" style="margin-top: 100px;">
+        <section class="section-rounded text-center">
+            <h2>Enterprise Data Strategy & Advisory</h2>
+            <p>As industries evolve with digital transformation, businesses must adapt to remain competitive. Our Enterprise Data Strategy & Advisory service is built to help organizations innovate, streamline operations, and gain actionable insights through Microsoft technologies.</p>
+        </section>
+
+        <section class="section-rounded">
+            <h3>Core Offerings</h3>
+            <ul>
+                <li><strong>Dynamics 365 Customer Engagement:</strong> Optimize customer interactions and drive deeper relationships using intelligent tools.</li>
+                <li><strong>Dynamics 365 ERP:</strong> A unified platform supporting finance, operations, HR, and supply chain with cloud-native scalability.</li>
+                <li><strong>Microsoft Power Platform:</strong> Create custom apps, automate tasks, and visualize data effortlessly.</li>
+            </ul>
+        </section>
+
+        <section class="section-rounded">
+            <h3>Why Choose Us?</h3>
+            <ul>
+                <li>Easy implementation and low learning curve</li>
+                <li>Tailored solutions and scalable platforms</li>
+                <li>Real-time analytics with Power BI and Azure AI</li>
+                <li>Enhanced collaboration with integrated Microsoft tools</li>
+            </ul>
+        </section>
+
+        <section class="section-rounded">
+            <h3>Advisory Insights</h3>
+            <p>We help organizations at every stage of digital maturity. Whether you are modernizing legacy systems or adopting a full Microsoft ecosystem, we guide you through effective execution, change management, and value realization.</p>
+            <details>
+                <summary><strong>Learn More</strong></summary>
+                <div class="mt-3">
+                    <h5>Customer Engagement Modules</h5>
+                    <ul>
+                        <li>Sales</li>
+                        <li>Marketing</li>
+                        <li>Customer Service</li>
+                        <li>Field Service</li>
+                        <li>Customer Insights</li>
+                    </ul>
+                    <p>Deliver personalized experiences and improve customer loyalty through AI-enhanced CRM.</p>
+
+                    <h5>ERP Capabilities</h5>
+                    <ul>
+                        <li>Finance</li>
+                        <li>HR</li>
+                        <li>Supply Chain</li>
+                        <li>Business Central</li>
+                        <li>Project Operations</li>
+                    </ul>
+                    <p>Increase operational agility and efficiency with a unified, AI-driven platform.</p>
+
+                    <h5>Power Platform Advantages</h5>
+                    <ul>
+                        <li>Power BI</li>
+                        <li>Power Apps</li>
+                        <li>Power Automate</li>
+                    </ul>
+                    <p>Empower teams to build custom apps, automate processes, and visualize KPIs—without needing extensive coding experience.</p>
+                </div>
+            </details>
+        </section>
+
+        <section class="section-rounded text-center">
+            <h4>Visual Representation</h4>
+            <%= image_tag "strategy-diagram.png", alt: "Strategy Visual", class: "img-fluid rounded", style: "max-width: 100%; height: auto;" %>
+        </section>
+
+        <section class="section-rounded">
+            <h3 class="text-center mb-4">Advisory Timeline</h3>
+
+            <div class="accordion" id="timelineAccordion">
+                <% advisory_updates = {
+                  "January 2025" => "We kicked off 2025 by engaging with three enterprise clients for Dynamics 365 Customer Engagement setup. Workshops were conducted to tailor CRM modules.",
+                  "February 2025" => "Focused on integrating Power Platform into client workflows. Implemented Power BI dashboards for supply chain transparency.",
+                  "March 2025" => "Launched Business Central ERP onboarding with two SMEs. Provided Copilot training sessions for Power Apps automation.",
+                  "April 2025" => "Refined financial forecasting tools using Azure ML. Supported multi-department ERP transitions for a retail giant.",
+                  "May 2025" => "Held our first webinar on Dynamics 365 scalability. Released a visual roadmap for Power Platform maturity stages."
+                } %>
+
+                <% advisory_updates.each_with_index do |(month, update), index| %>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-<%= index %>">
+                        <button class="accordion-button <%= 'collapsed' unless index == 0 %>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<%= index %>" aria-expanded="<%= index == 0 %>" aria-controls="collapse-<%= index %>">
+                            <%= month %>
+                        </button>
+                    </h2>
+                    <div id="collapse-<%= index %>" class="accordion-collapse collapse <%= 'show' if index == 0 %>" aria-labelledby="heading-<%= index %>" data-bs-parent="#timelineAccordion">
+                        <div class="accordion-body">
+                            <%= update %>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </section>
+    </main>
+
+    <%= render 'shared/footer' %>
+
+    <%= render 'shared/scripts' %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

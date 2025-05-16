@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'pages/contact'
   resources :applicants, path: "careers" do
+  resources :jobs, only: [:index, :show]
+  resources :applications, only: [:create]
     collection do
       get "thank_you", to: "applicants#thank_you"
     end
@@ -16,11 +18,18 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "static_pages#home"
 
+  get "index", to: "jobs#index", as: :index
+
   post '/contact', to: 'contacts#create', defaults: { format: :json }
 
   get '/contact', to: redirect('/')
 
-  get "contact-us", to: "pages#contact", as: :contact_us
+  get "contact-us", to: "static_pages#contactus", as: :contact_us
 
+  get "learnmore", to: "static_pages#learnmore"
+
+  get "team", to: "static_pages#team", as: :team
+
+  get "joinus", to: "static_pages#joinus", as: :joinus
 
 end
