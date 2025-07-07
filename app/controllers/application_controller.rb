@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
 
   before_action :ensure_www_domain
+  before_action :track_ahoy_visit
+  after_action :track_page_view
 
 private
 
@@ -10,5 +12,12 @@ def ensure_www_domain
   end
 end
 
+def track_ahoy_visit
+  ahoy.track_visit unless ahoy.visit
+end
+
+def track_page_view
+  ahoy.track "Viewed #{controller_name}##{action_name}", request.path_parameters
+end
 
 end

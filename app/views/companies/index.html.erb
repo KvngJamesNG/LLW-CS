@@ -1,0 +1,25 @@
+<div class="container" style="margin-top: 50px;" id="companies-index" center.text>
+    <h1 style="text-align: center;">Recently Registered Companies</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Company Number</th>
+                    <th>Date Incorporated</th>
+                    <th>Status</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @companies.each do |company| %>
+                <tr>
+                    <td><%= company.name %></td>
+                    <td><%= company.company_number %></td>
+                    <td><%= company.incorporated_on %></td>
+                    <td><%= company.status %></td>
+                    <td><%= company.address %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>

@@ -26,6 +26,14 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+
+gem "httparty"        # For making HTTP requests
+gem "dotenv-rails"    # For loading the .env file
+gem "json"
+# In Gemfile
+gem 'ahoy_matey'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

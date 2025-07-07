@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
+  get 'companies/index'
+  get 'companies/fetch'
+  get 'appointments/new'
+  get 'appointments/create'
+  get 'appointments/index'
   get 'pages/contact'
   resources :applicants, path: "careers" do
   resources :jobs, only: [:index, :show]
   resources :applications, only: [:create]
+  # config/routes.rb
+resources :appointments, only: [:new, :create, :index]
+
     collection do
       get "thank_you", to: "applicants#thank_you"
     end
@@ -31,5 +39,9 @@ Rails.application.routes.draw do
   get "team", to: "static_pages#team", as: :team
 
   get "joinus", to: "static_pages#joinus", as: :joinus
+
+  get "/companies", to: "companies#index"
+  
+  get "/companies/fetch", to: "companies#fetch"
 
 end
