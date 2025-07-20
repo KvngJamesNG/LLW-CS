@@ -30,8 +30,15 @@ gem "jbuilder"
 gem "httparty"        # For making HTTP requests
 gem "dotenv-rails"    # For loading the .env file
 gem "json"
-# In Gemfile
-gem 'ahoy_matey'
+gem 'ransack'         # Search/filter support in ActiveAdmin
+gem 'sassc-rails'
+gem 'caxlsx_rails'
+gem 'geocoder'
+
+
+
+
+
 
 
 # Use Redis adapter to run Action Cable in production

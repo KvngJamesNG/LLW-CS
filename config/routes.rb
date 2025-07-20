@@ -40,8 +40,12 @@ resources :appointments, only: [:new, :create, :index]
 
   get "joinus", to: "static_pages#joinus", as: :joinus
 
+  get "hireus", to: "static_pages#hireus", as: :hireus
+
   get "/companies", to: "companies#index"
   
   get "/companies/fetch", to: "companies#fetch"
+
+  get 'book_appointment', to: 'static_pages#redirect'
 
 end

@@ -14,4 +14,12 @@ class StaticPagesController < ApplicationController
 
   def joinus
   end
+
+  def hireus
+  end
+
+  def redirect
+    redirect_to 'https://calendly.com/company-llw-cs/30min', allow_other_host: true
+  end
+  
 end
