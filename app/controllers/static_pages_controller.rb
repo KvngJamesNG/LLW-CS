@@ -16,10 +16,15 @@ class StaticPagesController < ApplicationController
   end
 
   def hireus
+    respond_to do |format|
+      format.html # renders hireus.html.erb
+    end
   end
 
   def redirect
-    redirect_to 'https://calendly.com/company-llw-cs/30min', allow_other_host: true
+    respond_to do |format|
+      format.html { redirect_to 'https://calendly.com/company-llw-cs/30min', allow_other_host: true }
+    end
   end
   
 end
