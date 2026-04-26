@@ -1,28 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<% content_for :navbar do %>
+  <%= render 'shared/navbar2' %>
+<% end %>
 
-<style>
+<% content_for :head do %>
+  <style>
     #team {
-        padding: 60px 20px;
-        margin-top: 100px;
-        background: #fff;
-        border-radius: 12px;
+      padding: 60px 20px;
+      margin-top: 100px;
+      background: #fff;
+      border-radius: 12px;
     }
-</style>
+  </style>
+<% end %>
 
-
-<%= render 'shared/head' %>
-
-<body id="page-top">
-
-    <!-- Navigation-->
-    <%= render 'shared/navbar2' %>
-
-    <%= render 'shared/team' %>
-
-    <%= render 'shared/footer' %>
-
-    <%= render 'shared/scripts' %>
-</body>
-
-</html>
+<%= render 'shared/team' %>

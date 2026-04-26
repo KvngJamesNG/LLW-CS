@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title> LLW Consultancy Services LTD | Tech Consultancy, Business Consultancy, Management Consultancy </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>LLW Consultancy Services LTD</title>
     <link rel="icon" type="image/png" href="<%= asset_path 'favicon.png' %>">
 
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" />
+    <%= stylesheet_link_tag "styles", media: "all", "data-turbo-track": "reload" %>
+    <%= yield :head %>
 </head>
 
-<body>
+<body id="page-top">
+    <%= content_for?(:navbar) ? yield(:navbar) : render("shared/navbar") %>
+
     <%= yield %>
+
+    <%= render "shared/footer" %>
+    <%= render "shared/scripts" %>
 </body>
 
 </html>

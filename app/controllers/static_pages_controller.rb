@@ -1,30 +1,19 @@
 class StaticPagesController < ApplicationController
-  def home
-    @message = " Hello LLW-CS version-whatever!!"
-  end
+  def home; end
 
   def learnmore
+    render layout: false
   end
 
-  def team
-  end
+  def team; end
 
-  def contactus
-  end
+  def contactus; end
 
-  def joinus
-  end
+  def joinus; end
 
-  def hireus
-    respond_to do |format|
-      format.html # renders hireus.html.erb
-    end
-  end
+  def hireus; end
 
   def redirect
-    respond_to do |format|
-      format.html { redirect_to 'https://calendly.com/company-llw-cs/30min', allow_other_host: true }
-    end
+    redirect_to "https://calendly.com/company-llw-cs/30min", allow_other_host: true
   end
-  
 end
