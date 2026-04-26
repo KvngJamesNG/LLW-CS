@@ -1,0 +1,52 @@
+  INFO [09ea61cf] Running /usr/bin/env mkdir -p .kamal on 172.20.10.2
+kvngjamesng@172.20.10.2's password:
+  INFO [09ea61cf] Finished in 21.233 seconds with exit status 0 (successful).
+Acquiring the deploy lock...
+Ensure Docker is installed...
+  INFO [7840f7b8] Running docker -v on 172.20.10.2
+  INFO [7840f7b8] Finished in 0.090 seconds with exit status 0 (successful).
+Build and push app image...
+  INFO [d1223a0d] Running docker --version && docker buildx version as king_james@localhost
+  INFO [d1223a0d] Finished in 0.480 seconds with exit status 0 (successful).
+  INFO [e64e2f4c] Running docker login ghcr.io -u [REDACTED] -p [REDACTED] as king_james@localhost
+  INFO [e64e2f4c] Finished in 0.845 seconds with exit status 0 (successful).
+Building from a local git clone, so ignoring these uncommitted changes:
+ M .DS_Store
+ M app/.DS_Store
+ M app/assets/.DS_Store
+ M app/assets/images/.DS_Store
+?? .kamal/
+?? "app/assets/images/Screen Shot 2025-09-07 at 8.29.59 PM.png"
+?? app/views/shared/_hireus.html.erb
+?? app/views/static_pages/hireus.html.erb
+?? config/deploy.yml
+?? config/locales/devise.en.yml
+?? kamal-setup.log
+  INFO Cloning repo into build directory `/var/folders/1q/kvdwzcjj74nf6_475knydwz40000gn/T/kamal-clones/llw-cs-b5a4de70f66e5/llw-cs/`...
+  INFO [87bbc20d] Running /usr/bin/env git -C /var/folders/1q/kvdwzcjj74nf6_475knydwz40000gn/T/kamal-clones/llw-cs-b5a4de70f66e5 clone /Users/king_james/Development/llw-cs --recurse-submodules as king_james@localhost
+  INFO Resetting local clone as `/var/folders/1q/kvdwzcjj74nf6_475knydwz40000gn/T/kamal-clones/llw-cs-b5a4de70f66e5/llw-cs/` already exists...
+  INFO [a8a934b8] Running /usr/bin/env git -C /var/folders/1q/kvdwzcjj74nf6_475knydwz40000gn/T/kamal-clones/llw-cs-b5a4de70f66e5/llw-cs/ remote set-url origin /Users/king_james/Development/llw-cs as king_james@localhost
+  INFO [a8a934b8] Finished in 0.019 seconds with exit status 0 (successful).
+  INFO [019cc30c] Running /usr/bin/env git -C /var/folders/1q/kvdwzcjj74nf6_475knydwz40000gn/T/kamal-clones/llw-cs-b5a4de70f66e5/llw-cs/ fetch origin as king_james@localhost
+  INFO [019cc30c] Finished in 0.069 seconds with exit status 0 (successful).
+  INFO [917e2f0d] Running /usr/bin/env git -C /var/folders/1q/kvdwzcjj74nf6_475knydwz40000gn/T/kamal-clones/llw-cs-b5a4de70f66e5/llw-cs/ reset --hard 599a096ac57c5e55b404d0a9bd2bcfc93633cc50 as king_james@localhost
+  INFO [917e2f0d] Finished in 0.039 seconds with exit status 0 (successful).
+  INFO [a50984f1] Running /usr/bin/env git -C /var/folders/1q/kvdwzcjj74nf6_475knydwz40000gn/T/kamal-clones/llw-cs-b5a4de70f66e5/llw-cs/ clean -fdx as king_james@localhost
+  INFO [a50984f1] Finished in 0.014 seconds with exit status 0 (successful).
+  INFO [e1ece3ba] Running /usr/bin/env git -C /var/folders/1q/kvdwzcjj74nf6_475knydwz40000gn/T/kamal-clones/llw-cs-b5a4de70f66e5/llw-cs/ submodule update --init as king_james@localhost
+  INFO [e1ece3ba] Finished in 0.163 seconds with exit status 0 (successful).
+  INFO [c29afdce] Running /usr/bin/env git -C /var/folders/1q/kvdwzcjj74nf6_475knydwz40000gn/T/kamal-clones/llw-cs-b5a4de70f66e5/llw-cs/ status --porcelain as king_james@localhost
+  INFO [c29afdce] Finished in 0.019 seconds with exit status 0 (successful).
+  INFO [b413842f] Running /usr/bin/env git -C /var/folders/1q/kvdwzcjj74nf6_475knydwz40000gn/T/kamal-clones/llw-cs-b5a4de70f66e5/llw-cs/ rev-parse HEAD as king_james@localhost
+  INFO [b413842f] Finished in 0.018 seconds with exit status 0 (successful).
+  INFO [2fe4702e] Running docker buildx inspect kamal-local-docker-container as king_james@localhost
+  WARN Missing compatible builder, so creating a new one first
+  INFO [461bad3e] Running docker buildx rm kamal-local-docker-container as king_james@localhost
+  INFO [9a053d27] Running docker buildx create --name kamal-local-docker-container --driver=docker-container as king_james@localhost
+  Finished all in 2.2 seconds
+Releasing the deploy lock...
+  Finished all in 23.7 seconds
+  [31mERROR (SSHKit::Command::Failed): docker exit status: 256
+docker stdout: Nothing written
+docker stderr: ERROR: failed to initialize builder kamal-local-docker-container (kamal-local-docker-container0): Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+[0m

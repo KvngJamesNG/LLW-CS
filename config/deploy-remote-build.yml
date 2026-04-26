@@ -1,0 +1,24 @@
+service: llw-cs
+image: ghcr.io/kvngjamesng/llw-cs
+
+servers:
+  web:
+    - 172.20.10.2
+
+ssh:
+  user: kvngjamesng
+
+registry:
+  server: ghcr.io
+  username: kvngjamesng
+
+builder:
+  remote: true
+  arch: amd64
+
+proxy:
+  ssl: false  # Disable for testing
+
+env:
+  clear:
+    RAILS_ENV: production

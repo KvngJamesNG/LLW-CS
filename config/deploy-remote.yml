@@ -1,0 +1,17 @@
+service: llw-cs
+image: ghcr.io/kvngjamesng/llw-cs
+servers:
+  web:
+    - 79.72.69.37
+ssh:
+  user: ubuntu
+registry:
+  server: ghcr.io
+  username: kvngjamesng
+builder:
+  remote: true
+  arch: amd64
+  context: ssh://ubuntu@79.72.69.37
+env:
+  clear:
+    RAILS_ENV: production
