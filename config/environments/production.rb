@@ -46,10 +46,15 @@ Rails.application.configure do
 
   # Assume all access to the app is happening through a SSL-terminating reverse proxy.
   # Can be used together with config.force_ssl for Strict-Transport-Security and secure cookies.
-  # config.assume_ssl = true
+  config.assume_ssl = true
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true
+
+  # Use a conservative HSTS max-age so that certificate issues don't cause
+  # a long browser lock-out. Increase to 31536000 (1 year) once the cert is
+  # confirmed stable and you want to pursue HSTS preload listing.
+  config.ssl_options = { hsts: { expires: 3600, subdomains: true, preload: false } }
 
   # Log to STDOUT by default
   config.logger = ActiveSupport::Logger.new(STDOUT)
@@ -88,12 +93,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Enable DNS rebinding protection and other `Host` header attacks.
-  # config.hosts = [
-  #   "example.com",     # Allow requests from example.com
-  #   /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
-  # ]
+  config.hosts = [
+    "llw-cs.com",
+    "www.llw-cs.com"
+  ]
   # Skip DNS rebinding protection for the default health check endpoint.
-  # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   
 #   config.action_mailer.delivery_method = :smtp
 #   config.action_mailer.smtp_settings = {
@@ -109,7 +114,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = false
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: ENV.fetch('APP_HOST', 'www.llw-cs.com'), protocol: 'https' }
 
   config.action_mailer.raise_delivery_errors = true
 

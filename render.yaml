@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: llw-cs
+    env: ruby
+    region: oregon
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec rails server -b 0.0.0.0"
+    healthCheckPath: /up
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: llw-cs-db
+          property: connectionString
+
+databases:
+  - name: llw-cs-db
+    databaseName: llw_cs_production
+    user: llw_cs
+    region: oregon
