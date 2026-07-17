@@ -51,6 +51,11 @@ Rails.application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true
 
+  # Use a conservative HSTS max-age so that certificate issues don't cause
+  # a long browser lock-out. Increase to 31536000 (1 year) once the cert is
+  # confirmed stable and you want to pursue HSTS preload listing.
+  config.ssl_options = { hsts: { expires: 3600, subdomains: true, preload: false } }
+
   # Log to STDOUT by default
   config.logger = ActiveSupport::Logger.new(STDOUT)
     .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
